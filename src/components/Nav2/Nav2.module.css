@@ -1,0 +1,28 @@
+.navbar{
+    display: flex!important;
+    flex-wrap: inherit!important;
+    background-color: rgba(240, 248, 255, 0)!important;
+    border-color: rgba(255, 255, 255, 0)!important;
+}
+
+.containerFluid{
+    padding: 0px 30px!important;
+}
+
+@media only screen and (max-width:991px) {
+    .containerFluid{
+        padding: 0px 18px!important;
+    }
+}
+
+.navBrand {
+    color: #6366f1!important;
+    font-size: 18px!important;
+    font-family: 'Ubuntu', sans-serif!important;
+    font-weight: bold!important;
+}
+
+.bi{
+    color: #6366f1!important;
+    padding-right: 5px;
+}

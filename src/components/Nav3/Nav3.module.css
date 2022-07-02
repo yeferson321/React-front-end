@@ -1,0 +1,12 @@
+.nav{
+    background-color: black!important;
+    height: auto!important;
+}
+
+.navLink{     
+    color: white!important;
+    font-size: 12px!important;
+    font-family: 'Roboto'!important;
+    font-weight: 600!important;
+    text-align: center!important;
+}

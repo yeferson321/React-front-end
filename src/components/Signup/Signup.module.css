@@ -1,0 +1,88 @@
+.container{
+    padding: 14% 10%!important;
+}
+
+.formControl{
+    padding: 0.7rem 0.75rem!important;
+    color: #585c7b!important;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #d4d7e5;
+    font-family: 'Roboto', sans-serif;
+}
+
+.formLabel{
+    color: #131022;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1{
+    color: #131022;
+    font-weight: 600;
+    text-align: center!important;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 18px!important;
+}
+
+p{
+    color: #585C7b;
+    text-align: center!important;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 14%!important;
+}
+
+.formCheck{
+    padding-bottom: 8%!important;
+    color: #585C7b;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.btnPrimary{
+    width: 100%;
+    font-family: 'Open Sans', sans-serif!important;
+    padding: 0.7rem!important;
+    background-color: #6366f1!important;
+    border-color: #6366f1!important;
+    box-shadow: 0 0.5rem 1.125rem -0.5rem rgb(99 102 241 / 90%) !important;
+}
+
+.btnPrimary:hover{
+    background-color: #8082f0!important;
+}
+
+.link{
+    color: #6366f1!important;
+}
+
+.line{
+    height: 1px;
+    margin: 9% 9%;
+}
+
+.mb>h5{
+    font-family: 'Open Sans', sans-serif!important;
+    font-size: initial;
+    text-align: center!important;
+    margin-bottom: 9%!important;
+    font-weight: 600;
+}
+
+.botton{
+    margin-bottom: 14%!important;
+}
+
+.checkLabel{
+    margin-left: 12px!important;
+}
+
+.mbGoogle{
+    padding-bottom: 30px!important;
+    display: flex!important;
+    justify-content: center!important; 
+}
+
+.validity{
+    margin: 10px 0px;
+}

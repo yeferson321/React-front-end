@@ -1,0 +1,32 @@
+.formControl{
+    padding: 0.7rem 0.75rem!important;
+    color: #585c7b!important;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #d4d7e5;
+    font-family: 'Roboto', sans-serif;
+}
+
+.formLabel{
+    color: #131022;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.botton{
+    margin-bottom: 14%!important;
+}
+
+.btnPrimary{
+    width: 100%;
+    font-family: 'Open Sans', sans-serif!important;
+    padding: 0.7rem!important;
+    background-color: #6366f1!important;
+    border-color: #6366f1!important;
+    box-shadow: 0 0.5rem 1.125rem -0.5rem rgb(99 102 241 / 90%) !important;
+}
+
+.btnPrimary:hover{
+    background-color: #8082f0!important;
+}
