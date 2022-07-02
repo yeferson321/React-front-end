@@ -27,9 +27,7 @@ function App() {
         <Route path="/check" element={<Check />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
-
         <Route path="/forgetpassword" element={<ForgetPassword/>} /> 
-       
         <Route path="/welcome" element={ token ? (<Welcome />):( <Navigate to="/expired"/>)} />
         <Route path="/expired" element={<Expired />} />
         <Route path="*" element={<Init />} />
