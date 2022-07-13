@@ -1,19 +1,19 @@
-export async function checkFunction(captcha, code, show, setShow) {
-    if (captcha == code) {
-        setShow(!show);
-    }
-}
-
-export async function emailFunction(email, setValidityEmail ) {
+export async function emailFunction(email, setValidityEmail1, setValidityEmail2) {
     if (email == "") {
-        setValidityEmail(!true)
+        setValidityEmail1(!true)
     } else {
-        setValidityEmail(true)
+        setValidityEmail1(true)
+    }
+
+    if (email && email.search(/^[a-zA-Z0-9_.+-\ñ]+@[a-zA-Z]+\.[a-zA-Z.]+$/)) {
+        setValidityEmail2(!true)
+    } else {
+        setValidityEmail2(true)
     }
 }
 
-export async function disabledFunction(email, button) {
-    if (!email == "" && !email.search(/^[a-zA-Z0-9_.+-\ñ]+@[a-zA-Z]+\.[a-zA-Z.]+$/)) {
+export async function disabledFunction(email, button, data) {
+    if (!email == "" && !email.search(/^[a-zA-Z0-9_.+-\ñ]+@[a-zA-Z]+\.[a-zA-Z.]+$/) && !email.match(/<script>/gi) && data.data.math == data.data.captcha) {
         button.disabled = false;
     } else {
         button.disabled = true;

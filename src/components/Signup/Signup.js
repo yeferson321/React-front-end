@@ -9,6 +9,7 @@ import { passwordtwoFunction } from '../Signup/ValiForm';
 import { disabledFunction } from '../Signup/ValiForm';
 import Footer1 from '../Footer1/Footer1';
 import Nav2 from '../Nav2/Nav2';
+import GoogleSignin from '../GoogleSignin/GoogleSignin'
 import Swal from 'sweetalert2';
 import styles from './Signup.module.css';
 
@@ -22,31 +23,11 @@ function Signup() {
     const [validityPassword1, setValidityPassword1] = useState(true);
     const [validityPassword2, setValidityPassword2] = useState(true);
     const [validityCheck, setValidityCheck] = useState(false);
-    const btnPassword1 = document.getElementById("password1");
-    const btnPassword2 = document.getElementById("password2");
 
-    const [form, setForm] = useState({
-        name: '',
-        email: '',
-        password1: '',
-        password2: '',
-        checkbox: ''
-    })
+    const [form, setForm] = useState({ name: '', email: '', password1: '', password2: '', checkbox: '' })
 
-    const handleInputChange = (event) => {
-        setForm({
-            ...form,
-            [event.target.name]: event.target.value,
-        });
-    }
-
-    const handleInputCheck = (event) => {
-        setForm({
-            ...form,
-            [event.target.name]: event.target.checked
-        });
-        console.log(form)
-    }
+    const handleInputChange = (event) => {setForm({ ...form, [event.target.name]: event.target.value }); }
+    const handleInputCheck = (event) => { setForm({ ...form, [event.target.name]: event.target.checked }); }
 
     const name = form.name
     const email = form.email
@@ -76,6 +57,8 @@ function Signup() {
     }
 
     const SwitchCheck = () => {
+        const btnPassword1 = document.getElementById("password1");
+        const btnPassword2 = document.getElementById("password2");
         checkboxFunction(btnPassword1, btnPassword2)
     }
 
@@ -87,8 +70,6 @@ function Signup() {
         event.preventDefault();
 
         postSignupClient(form).then((res) => {
-
-            console.log(form)
 
             const message = (res.data?.message ?? 'Intente de nuevo')
             const type = (res.data?.type ?? 'Intente de nuevo')
@@ -151,63 +132,58 @@ function Signup() {
                 <h1 className={styles.h1}>Crear cuenta</h1>
                 <p className={styles.p}>¿Ya tienes una cuenta? <a className='link' href="http://localhost:3000/signin">Inicia sesión.</a></p>
 
-                <form className={`${styles.form} ${"form"}`} onSubmit={OnInit}>
+                <form onSubmit={OnInit}>
                     <div className="mb-3">
-                        <label htmlFor="exampleInputEmail1" className={`${styles.formLabel} ${"formLabel form-label"}`} >Nombre completo</label>
-                        <input type="text" className={`${styles.formControl} ${"formControl form-control"}`}
+                        <label htmlFor="inputName" className={`${styles.formLabel} ${"form-label"}`} >Nombre completo</label>
+                        <input type="text" className={`${styles.formControl} ${"form-control"}`}
                             name='name' id='name' value={form.name} onKeyUp={validationName} onBlur={validationName} onChange={handleInputChange}/>
-                        {validityName1 ? (<div></div>) : (<label className={`${styles.validity} ${"validity form-label"}`} style={{ color: "#f67d7d" }} >El campo es obligatorio</label>)}
-                        {validityName2 ? (<div></div>) : (<label className={`${styles.validity} ${"validity form-label"}`} style={{ color: "#f67d7d" }} >Su nombre no debe contener numeros o caracteres especiales, solo se permiten letras (a-z)</label>)}
+                        {validityName1 ? (<div></div>) : (<label className={`${styles.validity} ${"form-label"}`} style={{ color: "#f67d7d" }} >El campo es obligatorio</label>)}
+                        {validityName2 ? (<div></div>) : (<label className={`${styles.validity} ${"form-label"}`} style={{ color: "#f67d7d" }} >Su nombre no debe contener numeros o caracteres especiales, solo se permiten letras (a-z)</label>)}
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="exampleInputEmail1" className={`${styles.formLabel} ${"formLabel form-label"}`}>Correo electronico</label>
-                        <input type="text" className={`${styles.formControl} ${"formControl form-control"}`} aria-describedby="emailHelp"
+                        <label htmlFor="exampleInputEmail1" className={`${styles.formLabel} ${"form-label"}`}>Correo electronico</label>
+                        <input type="text" className={`${styles.formControl} ${"form-control"}`} aria-describedby="emailHelp"
                             placeholder='No compartimos tu correo electrónico' name='email' id='email' value={form.email} onKeyUp={validationEmail} onBlur={validationEmail} onChange={handleInputChange}  />
-                        {validityEmail1 ? (<div></div>) : (<label className={`${styles.validity} ${"validity form-label"}`} style={{ color: "#f67d7d" }} >El campo es obligatorio</label>)}
-                        {validityEmail2 ? (<div></div>) : (<label className={`${styles.validity} ${"validity form-label"}`} style={{ color: "#f67d7d" }} >Es necesario que su correo contenda un '@' y no cuente con caracteres especiales</label>)}                  
+                        {validityEmail1 ? (<div></div>) : (<label className={`${styles.validity} ${"form-label"}`} style={{ color: "#f67d7d" }} >El campo es obligatorio</label>)}
+                        {validityEmail2 ? (<div></div>) : (<label className={`${styles.validity} ${"form-label"}`} style={{ color: "#f67d7d" }} >Es necesario que su correo contenda un '@' y no cuente con caracteres especiales</label>)}                  
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="exampleInputPassword1" className={`${styles.formLabel} ${"formLabel form-label"}`}>Contraseña</label>
-                        <input type="password" className={`${styles.formControl} ${"formControl form-control"}`} 
+                        <label htmlFor="exampleInputPassword1" className={`${styles.formLabel} ${"form-label"}`}>Contraseña</label>
+                        <input type="password" className={`${styles.formControl} ${"form-control"}`} 
                             name='password1' id='password1' value={form.password1} onKeyUp={validationPassword1} onBlur={validationPassword1} onChange={handleInputChange}  />
-                        {validityPassword ? (<div></div>) : (<label className={`${styles.validity} ${"validity form-label"}`} style={{ color: "#f67d7d" }} >El campo es obligatorio</label>)}
-                        {validityPassword1 ? (<div></div>) : (<label className={`${styles.validity} ${"validity form-label"}`} style={{ color: "#f67d7d" }}>La contraseña deber tener minimo 8 caracteres y maximo 12, prueba con una combinación de letras y números</label>)}
+                        {validityPassword ? (<div></div>) : (<label className={`${styles.validity} ${"form-label"}`} style={{ color: "#f67d7d" }} >El campo es obligatorio</label>)}
+                        {validityPassword1 ? (<div></div>) : (<label className={`${styles.validity} ${"form-label"}`} style={{ color: "#f67d7d" }}>La contraseña deber tener minimo 8 caracteres y maximo 12, prueba con una combinación de letras y números</label>)}
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="exampleInputPassword1" className={`${styles.formLabel} ${"formLabel form-label"}`} >Confirmar contraseña</label>
-                        <input type="password" className={`${styles.formControl} ${"formControl form-control"}`} 
+                        <label htmlFor="exampleInputPassword1" className={`${styles.formLabel} ${"form-label"}`} >Confirmar contraseña</label>
+                        <input type="password" className={`${styles.formControl} ${"form-control"}`} 
                             name='password2' id='password2' value={form.password2} onKeyUp={validationPassword2} onBlur={validationPassword2} onChange={handleInputChange}  />
-                        {validityPassword2 ? (<div></div>) : (<label className={`${styles.validity} ${"validity form-label"}`} style={{ color: "#f67d7d" }} >Las contraseñas no coinciden</label>)}
+                        {validityPassword2 ? (<div></div>) : (<label className={`${styles.validity} ${"form-label"}`} style={{ color: "#f67d7d" }} >Las contraseñas no coinciden</label>)}
                     </div>
 
-                    <div className={`${styles.formCheck} ${"mb-3 formCheck form-switch"}`}>
+                    <div className={`${styles.formCheck} ${"mb-3 form-switch"}`}>
                         <input className="form-check-input" type="checkbox" role="switch" onClick={SwitchCheck} />
-                        <label className={`${styles.checkLabel} ${"checkLabel form-check-label"}`}  htmlFor="flexSwitchCheckDefault">Mostrar contraseñas</label>
+                        <label className={`${styles.checkLabel} ${"form-check-label"}`}  htmlFor="flexSwitchCheckDefault">Mostrar contraseñas</label>
                     </div>
 
-                    <div className={`${styles.formCheck} ${"mb-3 formCheck form-switch"}`}>
+                    <div className={`${styles.formCheck} ${"mb-3 form-switch"}`}>
                         <input className="form-check-input" type="checkbox" role="switch" id="flexSwitch" name='checkbox' onClick={validationCheck} onChange={handleInputCheck} />
-                        <label className={`${styles.checkLabel} ${"checkLabel form-check-label"}`} htmlFor="flexSwitchCheckDefault">Al registrarte confirmas que has leido los <a className='link'
+                        <label className={`${styles.checkLabel} ${"form-check-label"}`} htmlFor="flexSwitchCheckDefault">Al registrarte confirmas que has leido los <a className='link'
                             href="http://localhost:3000/">Terminos y Condiciones</a></label>
-                        {validityCheck ? (<div></div>) : (<label className={`${styles.validity} ${"validity form-label"}`} style={{ color: "#f67d7d" }} >Acepta las condiciones</label>)}
+                        {validityCheck ? (<div></div>) : (<label className={`${styles.validity} ${"form-label"}`} style={{ color: "#f67d7d" }} >Acepta las condiciones</label>)}
                     </div>
 
-                    <button htmlFor="submit" className={`${styles.btnPrimary} ${"btn btnPrimary btn-primary"}`} id="btn">Continuar</button>
+                    <button htmlFor="submit" className={`${styles.btnPrimary} ${"btn btn-primary"}`} id="btn">Continuar</button>
 
                 </form>
 
                 <div>
-
                     <hr className={styles.line}></hr>
-
-                    <div className={`${styles.mb} ${"mb-1 mb"}`} >
-                        <h5>Tambien registrate con</h5>
-                    </div>
-
+                    <h5 className={`${styles.h5}`}>Tambien registrate con</h5>
+                    <GoogleSignin />
                 </div>
 
             </div>
-
             <Footer1 />
         </div>
     );

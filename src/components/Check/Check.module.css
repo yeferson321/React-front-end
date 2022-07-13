@@ -30,3 +30,7 @@
 .btnPrimary:hover{
     background-color: #8082f0!important;
 }
+
+.validity{
+    margin: 10px 0px;
+}

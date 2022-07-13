@@ -1,6 +1,7 @@
 .textCenter{
     border-color: #ffffff!important;
-    margin: 15px!important;
+    width: 100%;
+    margin: 15px 0px;
     font-size: 14px!important;
     color: #585C7b;
 }

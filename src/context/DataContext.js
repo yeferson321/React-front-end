@@ -1,19 +1,18 @@
 import React, { createContext, useState } from "react";
 
-const DataProvider = (props) => {
+export const DataContext = createContext();
 
-  const data = {
-    dfdf: 'f'
-  }
- 
+const DataProvider = ({children}) => {
+
+  const [data, setData] = useState();
+  const addData = (data) => { setData(data) }
+
   return (
 
-    <DataContext.Provider value={{data}}>
-      {props.children}
+    <DataContext.Provider value={{ data, addData}}>
+      {children}
     </DataContext.Provider>
 
   );
 }
-
-export default DataProvider;
-export const DataContext = createContext();
+export default DataProvider

@@ -12,6 +12,7 @@ import Welcome from './components/Welcome/Welcome';
 import Expired from './components/Expired/Expired';
 import Login from './components/Login/Login';
 import ForgetPassword from './components/ForgetPassword/Forget';
+import Newpassword from './components/NewPassword/Newpassword';
 
 function App() {
 
@@ -28,12 +29,12 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/forgetpassword" element={<ForgetPassword/>} /> 
+        <Route path="/newpassword/:token" element={<Newpassword/>} /> 
         <Route path="/welcome" element={ token ? (<Welcome />):( <Navigate to="/expired"/>)} />
         <Route path="/expired" element={<Expired />} />
         <Route path="*" element={<Init />} />
-    
       </Routes>
-      </DataProvider>
+    </DataProvider>
 
   );
 }

@@ -1,16 +1,5 @@
 import axios from 'axios'
 
-export async function getCodeClient() {
-  const response = await axios({
-    url: "http://127.0.0.1:5000/v1/payments/code",
-    method: "get",
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  return response
-}
-
 export async function postPayoutsClient(datos) {
   const response = await axios({
     url: "http://127.0.0.1:5000/v1/payments/payouts",
@@ -47,6 +36,18 @@ export async function postSignupstateClient(datos) {
   return response
 }
 
+export async function postSignupGoogleClient(datos) {
+  const response = await axios({
+    url: "http://127.0.0.1:5000/v1/signup/google",
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    data: datos
+  })
+  return response
+}
+
 export async function postSigninClient(datos) {
   const response = await axios({
     url: "http://127.0.0.1:5000/v1/signin",
@@ -71,3 +72,15 @@ export async function postForgetPassword(email) {
   return response
 }
 
+export async function postNewPassword(form) {
+  const response = await axios({
+    url: "http://127.0.0.1:5000/v1/newpassword",
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+      'x-access-token': form.token
+    },
+    data: form
+  })
+  return response
+}

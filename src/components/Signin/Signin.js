@@ -5,6 +5,7 @@ import { emailFunction } from '../Signin/ValiForm';
 import { passwordoneFunction } from '../Signin/ValiForm';
 import { disabledFunction } from '../Signin/ValiForm';
 import styles from './Signin.module.css';
+import GoogleSignin from '../GoogleSignin/GoogleSignin'
 import Footer1 from '../Footer1/Footer1';
 import Nav2 from '../Nav2/Nav2';
 import Swal from 'sweetalert2'
@@ -53,8 +54,8 @@ function Signin() {
 
         postSigninClient(form).then((res) => {
 
-            console.log(res.data.message)
             const message = (res.data?.message ?? 'Intente de nuevo')
+            const type = (res.data?.type ?? 'Intente de nuevo')
             const answer = (res.data?.Respuesta ?? 'Intente de nuevo')
 
             if (answer === true) {
@@ -78,15 +79,15 @@ function Signin() {
                     title: [message],
                 }).then(() => {
                     window.location.href = 'welcome'
-                })  
-                
+                })
+
             } else {
 
                 const Toast = Swal.mixin({
                     toast: true,
                     position: 'top-end',
                     showConfirmButton: false,
-                    timer: 7000,
+                    timer: 5000,
                     timerProgressBar: true,
                     didOpen: (toast) => {
                         toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -97,6 +98,8 @@ function Signin() {
                 Toast.fire({
                     icon: 'info',
                     title: [message],
+                }).then(() => {
+                    document.getElementById(type).focus();
                 })
 
             }
@@ -110,7 +113,7 @@ function Signin() {
             <div className={`${styles.container} ${"container"}`}>
 
                 <h1 className={styles.h1}>Iniciar sesión</h1>
-                <p className={styles.p}>¿No tienes una cuenta? <a href="http://localhost:3000/signup">Unete.</a></p>
+                <p className={styles.p}>¿Aun no tienes una cuenta? <a href="http://localhost:3000/signup">Unete.</a></p>
 
                 <form className={`${styles.form} ${"form"}`} onSubmit={OnInit}>
                     <div className="mb-3">
@@ -136,12 +139,10 @@ function Signin() {
                     <a className={`${styles.forgot}`} href="/forgetpassword">¿Olvidaste tu contraseña?</a>
                 </form>
 
-                <div className='singinLogin'>
+                <div>
                     <hr className={styles.line}></hr>
-
-                    <div className={`${styles.mb} ${"mb-1 mb"}`} >
-                        <h5>Tambien inicia con</h5>
-                    </div>
+                    <h5 className={`${styles.h5}`} >Tambien inicia con</h5>
+                    <GoogleSignin />
                 </div>
 
             </div>

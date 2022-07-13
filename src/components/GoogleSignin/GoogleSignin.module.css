@@ -1,0 +1,19 @@
+.btn{
+    width: 100%;
+    font-family: 'Open Sans', sans-serif!important;
+    font-weight: 600!important;
+    padding: 0.7rem!important;
+    color: #33354d!important;
+    border-color: #eff2ff!important;
+    background-color: #eff2ff!important;
+}
+
+.btn:hover{
+    background-color: #cecece!important;
+    border-color: #cecece!important;
+}
+
+.bi{
+    color: #33354d;
+    margin-right: 10px;
+}

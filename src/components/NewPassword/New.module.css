@@ -1,5 +1,26 @@
 .container{
-    margin: 14% 10%!important;
+    padding: 14% 10%!important;
+}
+
+.containerTwo{
+    padding: 50% 10%!important;
+    text-align: center;
+}
+
+.formControl{
+    padding: 0.7rem 0.75rem!important;
+    color: #585c7b!important;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    font-family: 'Roboto', sans-serif;
+}
+
+.formLabel{
+    color: #131022;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-family: 'Roboto', sans-serif;
 }
 
 h1{
@@ -15,22 +36,6 @@ p{
     text-align: center!important;
     font-family: 'Open Sans', sans-serif;
     margin-bottom: 14%!important;
-}
-
-.formLabel{
-    color: #131022;
-    font-weight: 600;
-    margin-bottom: 5px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.formControl{
-    padding: 0.7rem 0.75rem!important;
-    color: #585c7b!important;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #d4d7e5;
-    font-family: 'Roboto', sans-serif;
 }
 
 .formCheck{
@@ -52,21 +57,16 @@ p{
     background-color: #8082f0!important;
 }
 
-.link{
-    color: #6366f1!important;
+.btnPrimarytwo{
+    width: 50%;
 }
 
-.line{
-    height: 1px;
-    margin: 9% 9%;
+.btnPrimarytwo:hover{
+    background-color: #8082f0!important;
 }
 
-.h5{
-    font-family: 'Open Sans', sans-serif!important;
-    font-size: initial;
-    text-align: center!important;
-    margin-bottom: 9%!important;
-    font-weight: 600;
+.botton{
+    margin-bottom: 14%!important;
 }
 
 .checkLabel{
